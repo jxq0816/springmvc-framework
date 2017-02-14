@@ -9,27 +9,27 @@
   <url>http://maven.apache.org</url>
 
   <properties>
-    <sping.version>4.3.6.RELEASE</sping.version>
-    <hibernate.version>5.1.0.Final</hibernate.version>
+    <spring.version>4.3.6.RELEASE</spring.version>
+    <jackson.version>2.8.6</jackson.version>
   </properties>
 
   <dependencies>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-core</artifactId>
-      <version>4.3.6.RELEASE</version>
+      <version>${spring.version}</version>
     </dependency>
 
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-context</artifactId>
-      <version>4.3.6.RELEASE</version>
+      <version>${spring.version}</version>
     </dependency>
 
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-webmvc</artifactId>
-      <version>${sping.version}</version>
+      <version>${spring.version}</version>
     </dependency>
 
     <dependency>
@@ -43,6 +43,21 @@
       <groupId>javax.servlet</groupId>
       <artifactId>jstl</artifactId>
       <version>1.2</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-core</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-annotations</artifactId>
+      <version>${jackson.version}</version>
     </dependency>
   </dependencies>
   <build>
