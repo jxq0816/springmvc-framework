@@ -1,9 +1,11 @@
-package com.jxq;
+package com.jxq.controller;
 
 /**
  * Created by boxiaotong on 2017/2/9.
  */
 
+import com.jxq.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -17,11 +19,15 @@ import java.util.Map;
 @Controller
 @RequestMapping("/")
 public class controller {
+    @Autowired
+    private UserService service;
+
     @RequestMapping(value = "json")
     @ResponseBody
     public Map fun(){
         Map map=new HashMap();
-        map.put("name","姜兴琪");
+        String name=service.query();
+        map.put("name",name);
         return map;
     }
     @RequestMapping(value = {"login",""})
