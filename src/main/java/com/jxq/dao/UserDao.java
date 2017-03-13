@@ -15,15 +15,14 @@ public class UserDao {
     private JdbcTemplate jdbcTemplate;
 
     public String query() {
-
-        String sql = "select count(*) from sys_user";
+        String name;
         try{
             Map rs=jdbcTemplate.queryForMap("select name from sys_user where id='1'");
-            int n = jdbcTemplate.queryForObject(sql, new Object[] {}, Integer.class);
-            System.out.println(n);
+            name= (String) rs.get("name");
+            System.out.println(name);
         }catch (Exception e) {
             throw e;
         }
-        return "";
+        return name;
     }
 }
