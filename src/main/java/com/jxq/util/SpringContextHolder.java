@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @Lazy(false)
+//延时加载关闭
 public class SpringContextHolder implements ApplicationContextAware{
 
 	private static ApplicationContext applicationContext;

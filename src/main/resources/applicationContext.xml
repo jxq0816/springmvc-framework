@@ -32,7 +32,7 @@
     <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
         <property name="configLocation" value="classpath:cache/ehcache-local.xml" />
     </bean>
-
+    <!--EhCacheManager implements CacheManager CacheUtils的CacheManager是由这里注入的 -->
     <bean id="shiroCacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
         <property name="cacheManager" ref="cacheManager"/>
     </bean>
