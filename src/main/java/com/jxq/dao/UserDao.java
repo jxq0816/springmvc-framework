@@ -14,12 +14,11 @@ public class UserDao {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    public String query() {
+    public String query(String id) {
         String name;
         try{
-            Map rs=jdbcTemplate.queryForMap("select name from sys_user where id='1'");
+            Map rs=jdbcTemplate.queryForMap("select name from sys_user where id='"+id+"'");
             name= (String) rs.get("name");
-            System.out.println(name);
         }catch (Exception e) {
             throw e;
         }

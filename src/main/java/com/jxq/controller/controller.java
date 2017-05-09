@@ -26,7 +26,7 @@ public class controller {
     @ResponseBody
     public Map fun(){
         Map map=new HashMap();
-        String name=service.query();
+        String name=service.query("1");
         map.put("name",name);
         return map;
     }
