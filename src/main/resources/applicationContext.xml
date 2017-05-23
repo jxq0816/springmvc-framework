@@ -37,4 +37,6 @@
         <property name="cacheManager" ref="cacheManager"/>
     </bean>
 
+    <bean id="springContextHolder" class="com.jxq.util.SpringContextHolder"></bean>
+
 </beans>

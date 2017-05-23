@@ -1,0 +1,26 @@
+import com.jxq.service.UserService;
+import com.jxq.util.SpringContextHolder;
+import org.junit.Test;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+/**
+ * Created by boxiaotong on 2017/5/22.
+ */
+public class SpringContextTest {
+
+    @Test
+    public void SpringContextTestService(){
+        UserService service= SpringContextHolder.getBean(UserService.class);
+        System.out.print(service);
+    }
+
+    @Test
+    public void SpringContextTestDao(){
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
+                new String[] { "applicationContext.xml","mvc-dispatcher-servlet.xml" });
+        SpringContextHolder holder= context.getBean(SpringContextHolder.class);
+        UserService service= holder.getBean(UserService.class);
+        String name=service.query("1");
+        System.out.print(name);
+    }
+}
