@@ -17,7 +17,7 @@ public class SpringContextTest {
     @Test
     public void SpringContextTestDao(){
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
-                new String[] { "applicationContext.xml","mvc-dispatcher-servlet.xml" });
+                new String[] {"spring-context.xml", "spring-mvc.xml"});
         SpringContextHolder holder= context.getBean(SpringContextHolder.class);
         UserService service= holder.getBean(UserService.class);
         String name=service.query("1");
