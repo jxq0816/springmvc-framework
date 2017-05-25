@@ -1,5 +1,5 @@
-# springmvc_demo
-框架支持
-1.springmvc
-2.hibernate
-3.shiro缓存
+# springmvc_framework
+## 所整合的框架
+1. springmvc
+2. MyBatis
+3. shiro缓存
