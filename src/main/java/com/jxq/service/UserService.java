@@ -5,6 +5,9 @@ import com.jxq.util.CacheUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by Administrator on 2017/2/23.
  */
@@ -19,7 +22,9 @@ public class UserService {
         if(name!=null){
             rs=(String)name;
         }else{
-            rs=userDao.query(id);
+            Map param=new HashMap<>();
+            param.put("id",id);
+            rs=userDao.query(param);
             CacheUtils.put(id,rs);
         }
         return rs;

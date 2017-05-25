@@ -14,6 +14,9 @@
     <hibernate.version>5.1.0.Final</hibernate.version>
     <commons-lang3.version>3.3.2</commons-lang3.version>
     <shiro.version>1.2.3</shiro.version>
+    <mybatis.version>3.2.8</mybatis.version>
+    <mybatis-spring.version>1.2.3</mybatis-spring.version>
+    <druid.version>1.0.18</druid.version>
   </properties>
 
   <dependencies>
@@ -40,20 +43,19 @@
       <artifactId>spring-webmvc</artifactId>
       <version>${spring.version}</version>
     </dependency>
-
+    <!--整合第三方ORM框架-->
     <dependency>
       <groupId>org.springframework.data</groupId>
       <artifactId>spring-data-jpa</artifactId>
       <version>1.10.7.RELEASE</version>
     </dependency>
-
-
+    <!--JSP Standard Tag Library，JSP标准标签库-->
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>jstl</artifactId>
       <version>1.2</version>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/javax.servlet/servlet-api -->
+    <!-- 服务器响应客户端HTTP请求 -->
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>servlet-api</artifactId>
@@ -75,6 +77,29 @@
       <version>${jackson.version}</version>
     </dependency>
 
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.30</version>
+    </dependency>
+
+    <!-- MyBatis -->
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis</artifactId>
+      <version>${mybatis.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis-spring</artifactId>
+      <version>${mybatis-spring.version}</version>
+    </dependency>
+    <!-- connection pool -->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>druid</artifactId>
+      <version>${druid.version}</version>
+    </dependency>
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
