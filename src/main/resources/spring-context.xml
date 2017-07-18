@@ -21,7 +21,7 @@
 
     <!-- 扫描basePackage下所有DAO接口 -->
     <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.jxq.dao"/>
+        <property name="basePackage" value="com.week7i.share.dao"/>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 
     </bean>
@@ -78,6 +78,6 @@
         <property name="cacheManager" ref="cacheManager"/>
     </bean>
 
-    <bean id="springContextHolder" class="com.jxq.util.SpringContextHolder"></bean>
+    <bean id="springContextHolder" class="com.week7i.share.util.SpringContextHolder"></bean>
 
 </beans>

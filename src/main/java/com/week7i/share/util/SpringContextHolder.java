@@ -1,7 +1,7 @@
 /**
  * Copyright &copy; 2012-2016 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
  */
-package com.jxq.util;
+package com.week7i.share.util;
 
 import org.apache.commons.lang3.Validate;
 import org.springframework.context.ApplicationContext;

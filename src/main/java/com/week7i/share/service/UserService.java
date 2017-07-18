@@ -1,7 +1,7 @@
-package com.jxq.service;
+package com.week7i.share.service;
 
-import com.jxq.dao.UserDao;
-import com.jxq.util.CacheUtils;
+import com.week7i.share.dao.UserDao;
+import com.week7i.share.util.CacheUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

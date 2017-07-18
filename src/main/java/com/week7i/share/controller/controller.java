@@ -1,10 +1,10 @@
-package com.jxq.controller;
+package com.week7i.share.controller;
 
 /**
  * Created by boxiaotong on 2017/2/9.
  */
 
-import com.jxq.service.UserService;
+import com.week7i.share.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

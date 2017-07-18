@@ -1,4 +1,4 @@
-package com.jxq.dao;
+package com.week7i.share.dao;
 
 import java.util.Map;
 

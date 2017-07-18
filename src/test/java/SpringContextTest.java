@@ -1,5 +1,5 @@
-import com.jxq.service.UserService;
-import com.jxq.util.SpringContextHolder;
+import com.week7i.share.service.UserService;
+import com.week7i.share.util.SpringContextHolder;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
