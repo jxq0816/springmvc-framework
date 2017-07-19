@@ -1,4 +1,4 @@
-import com.week7i.share.service.UserService;
+import com.week7i.share.service.SystemService;
 import com.week7i.share.util.SpringContextHolder;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -10,7 +10,7 @@ public class SpringContextTest {
 
     @Test
     public void SpringContextTestService(){
-        UserService service= SpringContextHolder.getBean(UserService.class);
+        SystemService service= SpringContextHolder.getBean(SystemService.class);
         System.out.print(service);
     }
 
@@ -19,8 +19,8 @@ public class SpringContextTest {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                 new String[] {"spring-context.xml", "spring-mvc.xml"});
         SpringContextHolder holder= context.getBean(SpringContextHolder.class);
-        UserService service= holder.getBean(UserService.class);
-        String name=service.query("1");
-        System.out.print(name);
+        SystemService service= holder.getBean(SystemService.class);
+        String rs=service.login("admin");
+        System.out.println(rs);
     }
 }

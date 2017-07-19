@@ -4,7 +4,7 @@ package com.week7i.share.controller;
  * Created by boxiaotong on 2017/2/9.
  */
 
-import com.week7i.share.service.UserService;
+import com.week7i.share.service.SystemService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.subject.Subject;
@@ -25,19 +25,19 @@ import java.util.Map;
 @RequestMapping("user")
 public class controller {
     @Autowired
-    private UserService service;
+    private SystemService service;
 
     @RequestMapping(value = "index")
     public String index(){
         return "index";
     }
 
-    @RequestMapping(value = "json")
+    @RequestMapping(value = "back")
     @ResponseBody
     public Map fun(){
         Map map=new HashMap();
-        String name=service.query("1");
-        map.put("name",name);
+        String password=service.login("admin");
+        map.put("password",password);
         return map;
     }
     @RequestMapping(value = {"login",""},method= RequestMethod.GET)

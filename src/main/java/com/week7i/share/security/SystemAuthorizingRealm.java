@@ -1,16 +1,33 @@
 package com.week7i.share.security;
 
 import com.alibaba.druid.util.StringUtils;
+import com.week7i.share.service.SystemService;
+import com.week7i.share.util.SpringContextHolder;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.springframework.stereotype.Service;
 
 /**
  * Created by jiangxingqi on 2017/7/19.
  */
+@Service
 public class SystemAuthorizingRealm extends AuthorizingRealm {
+
+    private SystemService systemService;
+
+    /**
+     * 获取系统业务对象
+     */
+    public SystemService getSystemService() {
+        if (systemService == null){
+            systemService = SpringContextHolder.getBean(SystemService.class);
+        }
+        return systemService;
+    }
+
 
     /**
      * 授权
@@ -39,11 +56,14 @@ public class SystemAuthorizingRealm extends AuthorizingRealm {
         UsernamePasswordToken authToken = (UsernamePasswordToken)token;
         System.out.println("MyRealm.doGetAuthenticationInfo.token="+token);
         //此处无需比对,比对的逻辑Shiro会做,我们只需返回一个和令牌相关的正确的验证信息
-        //说白了就是第一个参数填登录用户名,第二个参数填合法的登录密码(可以是从数据库中取到的,本例中为了演示就硬编码了)
-        //这样一来,在随后的登录页面上就只有这里指定的用户和密码才能通过验证
-        if("admin".equals(authToken.getUsername())) {
-            AuthenticationInfo authcInfo = new SimpleAuthenticationInfo("admin", "admin", this.getName());
-            return authcInfo;
+        //第一个参数填登录用户名,第二个参数填合法的登录密码
+        String username=authToken.getUsername();
+        if(StringUtils.isEmpty(username)==false) {
+            String password=getSystemService().login(username);
+            if(StringUtils.isEmpty(password)==false){
+                AuthenticationInfo authInfo = new SimpleAuthenticationInfo(username, password, this.getName());
+                return authInfo;
+            }
         }
         //没有返回登录用户名对应的SimpleAuthenticationInfo对象时,就会在LoginController中抛出UnknownAccountException异常
         return null;

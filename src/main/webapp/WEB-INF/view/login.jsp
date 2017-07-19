@@ -11,6 +11,7 @@
     <title>Title</title>
 </head>
 <body>
+${error_msg}
 <form action="/user/login" method="POST">
     姓名：<input type="text" name="username"/><br/>
     密码：<input type="text" name="password"/><br/>

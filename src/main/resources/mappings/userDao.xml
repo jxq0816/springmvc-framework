@@ -3,11 +3,11 @@
 <mapper namespace="com.week7i.share.dao.UserDao">
 
 	<!-- 根据登录名查询用户 -->
-	<select id="query" resultType="String" parameterType="java.util.Map">
+	<select id="login" resultType="String" parameterType="java.util.Map">
 		SELECT
-			login_name
-		FROM sys_user a
-		WHERE a.id = #{id}
+			password
+		FROM sys_user
+		WHERE  username = #{username}
 	</select>
 
 </mapper>
