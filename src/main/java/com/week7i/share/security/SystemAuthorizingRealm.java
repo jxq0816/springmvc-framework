@@ -1,8 +1,10 @@
 package com.week7i.share.security;
 
 import com.alibaba.druid.util.StringUtils;
+import com.week7i.share.controller.controller;
 import com.week7i.share.service.SystemService;
 import com.week7i.share.util.SpringContextHolder;
+import org.apache.log4j.Logger;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
@@ -17,6 +19,8 @@ import org.springframework.stereotype.Service;
 public class SystemAuthorizingRealm extends AuthorizingRealm {
 
     private SystemService systemService;
+
+    private static Logger logger = Logger.getLogger(controller.class);
 
     /**
      * 获取系统业务对象
@@ -41,7 +45,7 @@ public class SystemAuthorizingRealm extends AuthorizingRealm {
             simpleAuthorInfo.addRole("admin");
             //添加权限
             simpleAuthorInfo.addStringPermission("admin:manage");
-            System.out.println("已为用户[admin]赋予了[admin]角色和[admin:manage]权限");
+            logger.info("已为用户[admin]赋予了[admin]角色和[admin:manage]权限");
             return simpleAuthorInfo;
         }
         return simpleAuthorInfo;
@@ -54,7 +58,7 @@ public class SystemAuthorizingRealm extends AuthorizingRealm {
         //获取基于用户名和密码的令牌
         //实际上这个authcToken是从LoginController里面currentUser.login(token)传过来的
         UsernamePasswordToken authToken = (UsernamePasswordToken)token;
-        System.out.println("MyRealm.doGetAuthenticationInfo.token="+token);
+        logger.info("MyRealm.doGetAuthenticationInfo.token="+token);
         //此处无需比对,比对的逻辑Shiro会做,我们只需返回一个和令牌相关的正确的验证信息
         //第一个参数填登录用户名,第二个参数填合法的登录密码
         String username=authToken.getUsername();
