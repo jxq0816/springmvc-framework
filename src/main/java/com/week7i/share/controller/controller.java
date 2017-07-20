@@ -1,7 +1,7 @@
 package com.week7i.share.controller;
 
 /**
- * Created by boxiaotong on 2017/2/9.
+ * Created by jiangxingqi on 2017/2/9.
  */
 
 import com.week7i.share.service.SystemService;

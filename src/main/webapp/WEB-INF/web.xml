@@ -9,7 +9,8 @@
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
-            classpath:/spring-context*.xml
+            classpath:/spring-context.xml
+            classpath:/spring-context-shiro.xml
         </param-value>
     </context-param>
     <!-- 加入ContextLoaderListener -->
@@ -22,7 +23,7 @@
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:/spring-mvc.xml</param-value>
+            <param-value>classpath:/spring-mvc-dispatcher.xml</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
