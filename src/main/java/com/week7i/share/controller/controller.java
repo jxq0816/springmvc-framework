@@ -5,10 +5,11 @@ package com.week7i.share.controller;
  */
 
 import com.week7i.share.service.SystemService;
+import org.apache.log4j.Logger;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.apache.shiro.subject.Subject;
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,6 +37,7 @@ public class controller {
         return "index";
     }
 
+    @RequiresRoles("admin")
     @RequestMapping(value = "back")
     @ResponseBody
     public Map fun(){
