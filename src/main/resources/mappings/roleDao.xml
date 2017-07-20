@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.week7i.share.dao.RoleDao">
+
+	<!-- 根据登录名查询角色 -->
+	<select id="getRoleByUserName" resultType="String" parameterType="java.util.Map">
+		SELECT
+			sys_role.name
+		FROM sys_user,sys_user_role,sys_role
+		WHERE sys_user.username = #{username} and sys_user.id = sys_user_role.fk_sys_user_id and sys_role.id=sys_user_role.fk_sys_role_id
+	</select>
+
+</mapper>

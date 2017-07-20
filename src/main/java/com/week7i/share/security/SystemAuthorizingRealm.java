@@ -40,7 +40,7 @@ public class SystemAuthorizingRealm extends AuthorizingRealm {
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
         String currentUsername = (String)super.getAvailablePrincipal(principals);
         SimpleAuthorizationInfo simpleAuthorInfo = new SimpleAuthorizationInfo();
-        if(StringUtils.isEmpty(currentUsername)==false && currentUsername.equals("admin")){
+        if(StringUtils.isEmpty(currentUsername)==false){
             //添加一个角色,不是配置意义上的添加,而是证明该用户拥有admin角色
             simpleAuthorInfo.addRole("admin");
             //添加权限

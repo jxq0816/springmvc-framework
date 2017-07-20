@@ -8,19 +8,25 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class SpringContextTest {
 
+    /**
+     * 测试方法执行时，需要将spring-mvc.xml里面
+     */
+
     @Test
-    public void SpringContextTestService(){
-        SystemService service= SpringContextHolder.getBean(SystemService.class);
-        System.out.print(service);
+    public void loginTest(){
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext( new String[] {"spring-context.xml", "spring-mvc.xml","spring-context-shiro.xml"});
+        SpringContextHolder holder= context.getBean(SpringContextHolder.class);
+        SystemService service= holder.getBean(SystemService.class);
+        String rs=service.login("jiangxingqi");
+        System.out.println(rs);
     }
 
     @Test
-    public void SpringContextTestDao(){
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
-                new String[] {"spring-context.xml", "spring-mvc.xml"});
+    public void getRoleByUserNameTest(){
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[] {"spring-context.xml", "spring-mvc.xml","spring-context-shiro.xml"});
         SpringContextHolder holder= context.getBean(SpringContextHolder.class);
         SystemService service= holder.getBean(SystemService.class);
-        String rs=service.login("admin");
+        String rs=service.getRoleByUserName("jiangxingqi");
         System.out.println(rs);
     }
 }

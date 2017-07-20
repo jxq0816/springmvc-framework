@@ -1,5 +1,6 @@
 package com.week7i.share.service;
 
+import com.week7i.share.dao.RoleDao;
 import com.week7i.share.dao.UserDao;
 import com.week7i.share.util.CacheUtils;
 import com.week7i.share.util.SpringContextHolder;
@@ -14,19 +15,27 @@ import java.util.Map;
 @Service
 public class SystemService {
 
-    private UserDao userDao= SpringContextHolder.getBean(UserDao.class);
+    private UserDao userDao = SpringContextHolder.getBean(UserDao.class);
+    private RoleDao roleDao = SpringContextHolder.getBean(RoleDao.class);
 
-    public String login(String username){
+    public String login(String username) {
         String rs;
-        Object password=CacheUtils.get(username);
-        if(password!=null){
-            rs=(String)password;
-        }else{
-            Map param=new HashMap<>();
-            param.put("username",username);
-            rs=userDao.login(param);
-            CacheUtils.put(username,rs);
+        Object password = CacheUtils.get(username);
+        if (password != null) {
+            rs = (String) password;
+        } else {
+            Map param = new HashMap<>();
+            param.put("username", username);
+            rs = userDao.login(param);
+            CacheUtils.put(username, rs);
         }
+        return rs;
+    }
+
+    public String getRoleByUserName(String username) {
+        Map param = new HashMap<>();
+        param.put("username", username);
+        String rs = roleDao.getRoleByUserName(param);
         return rs;
     }
 }
