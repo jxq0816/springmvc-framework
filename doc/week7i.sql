@@ -1,30 +1,61 @@
-drop database if exists week7i;
-create database week7i;
-use week7i;
+/*
+Navicat MySQL Data Transfer
 
-create table users (
-  id bigint auto_increment,
-  username varchar(100),
-  password varchar(100),
-  password_salt varchar(100),
-  constraint pk_users primary key(id)
-) charset=utf8 ENGINE=InnoDB;
-create unique index idx_users_username on users(username);
+Source Server         : 127.0.0.1
+Source Server Version : 50717
+Source Host           : localhost:3306
+Source Database       : springmvc_demo
 
-create table user_roles(
-  id bigint auto_increment,
-  username varchar(100),
-  role_name varchar(100),
-  constraint pk_user_roles primary key(id)
-) charset=utf8 ENGINE=InnoDB;
-create unique index idx_user_roles on user_roles(username, role_name);
+Target Server Type    : MYSQL
+Target Server Version : 50717
+File Encoding         : 65001
 
-create table roles_permissions(
-  id bigint auto_increment,
-  role_name varchar(100),
-  permission varchar(100),
-  constraint pk_roles_permissions primary key(id)
-) charset=utf8 ENGINE=InnoDB;
-create unique index idx_roles_permissions on roles_permissions(role_name, permission);
+Date: 2017-07-20 17:35:16
+*/
 
-insert into users(username,password)values('admin','123');
+SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for sys_role
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_role`;
+CREATE TABLE `sys_role` (
+  `id` varchar(20) DEFAULT NULL,
+  `name` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of sys_role
+-- ----------------------------
+INSERT INTO `sys_role` VALUES ('1', 'admin');
+
+-- ----------------------------
+-- Table structure for sys_user
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_user`;
+CREATE TABLE `sys_user` (
+  `id` varchar(10) NOT NULL,
+  `username` varchar(20) NOT NULL,
+  `password` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of sys_user
+-- ----------------------------
+INSERT INTO `sys_user` VALUES ('1', 'jiangxingqi', 'jiangxingqi');
+
+-- ----------------------------
+-- Table structure for sys_user_role
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_user_role`;
+CREATE TABLE `sys_user_role` (
+  `fk_sys_user_id` varchar(64) NOT NULL COMMENT '用户编号',
+  `fk_sys_role_id` varchar(64) NOT NULL COMMENT '角色编号',
+  PRIMARY KEY (`fk_sys_user_id`,`fk_sys_role_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户-角色';
+
+-- ----------------------------
+-- Records of sys_user_role
+-- ----------------------------
+INSERT INTO `sys_user_role` VALUES ('1', '1');

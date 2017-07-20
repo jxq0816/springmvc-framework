@@ -1,9 +1,9 @@
 package com.week7i.share.security;
 
-import com.alibaba.druid.util.StringUtils;
 import com.week7i.share.controller.controller;
 import com.week7i.share.service.SystemService;
 import com.week7i.share.util.SpringContextHolder;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
@@ -18,7 +18,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class SystemAuthorizingRealm extends AuthorizingRealm {
 
-    private SystemService systemService;
+    private static SystemService systemService;
 
     private static Logger logger = Logger.getLogger(controller.class);
 
@@ -40,12 +40,15 @@ public class SystemAuthorizingRealm extends AuthorizingRealm {
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
         String currentUsername = (String)super.getAvailablePrincipal(principals);
         SimpleAuthorizationInfo simpleAuthorInfo = new SimpleAuthorizationInfo();
-        if(StringUtils.isEmpty(currentUsername)==false){
+        if(StringUtils.isNotEmpty(currentUsername)){
             //添加一个角色,不是配置意义上的添加,而是证明该用户拥有admin角色
-            simpleAuthorInfo.addRole("admin");
+            String roleName=systemService.getRoleByUserName(currentUsername);
+            if(StringUtils.isNotEmpty(roleName)){
+                simpleAuthorInfo.addRole(roleName);
+                logger.info("已为用户["+currentUsername+"]赋予了["+roleName+"]角色");
+            }
             //添加权限
-            simpleAuthorInfo.addStringPermission("admin:manage");
-            logger.info("已为用户[admin]赋予了[admin]角色和[admin:manage]权限");
+            //simpleAuthorInfo.addStringPermission("admin:manage");
             return simpleAuthorInfo;
         }
         return simpleAuthorInfo;
