@@ -7,17 +7,18 @@
     <display-name>SpringMVCDemo Web Application</display-name>
 
     <context-param>
+        <!-- applicationContext.xml默认地址目录是/WEB-INF-->
         <param-name>contextConfigLocation</param-name>
         <param-value>
             classpath:/applicationContext.xml
             classpath:/spring-context-shiro.xml
         </param-value>
     </context-param>
-    <!-- 加入ContextLoaderListener -->
+    <!-- 加入ContextLoaderListener 启动Web容器时，自动装配ApplicationContext的配置信息-->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
-
+    <!--DispatcherServlet是前置控制器,拦截匹配的请求，Servlet拦截匹配规则要自己定义，把拦截下来的请求，依据相应的规则分发到目标Controller来处理-->
     <servlet>
         <servlet-name>mvc-dispatcher</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
