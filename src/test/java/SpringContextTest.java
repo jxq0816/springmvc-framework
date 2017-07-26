@@ -14,7 +14,7 @@ public class SpringContextTest {
 
     @Test
     public void loginTest(){
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext( new String[] {"spring-context.xml", "spring-mvc-dispatcher.xml","spring-context-shiro.xml"});
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext( new String[] {"applicationContext.xml", "dispatcherServlet.xml","spring-context-shiro.xml"});
         SpringContextHolder holder= context.getBean(SpringContextHolder.class);
         SystemService service= holder.getBean(SystemService.class);
         String rs=service.login("jiangxingqi");
@@ -23,7 +23,7 @@ public class SpringContextTest {
 
     @Test
     public void getRoleByUserNameTest(){
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[] {"spring-context.xml", "spring-mvc-dispatcher.xml","spring-context-shiro.xml"});
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[] {"applicationContext.xml", "dispatcherServlet.xml","spring-context-shiro.xml"});
         SpringContextHolder holder= context.getBean(SpringContextHolder.class);
         SystemService service= holder.getBean(SystemService.class);
         String rs=service.getRoleByUserName("jiangxingqi");
