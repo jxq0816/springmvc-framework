@@ -4,9 +4,9 @@ import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
- * Created by boxiaotong on 2017/5/22.
+ * Created by jiangxingqi on 2017/5/22.
  */
-public class SpringContextTest {
+public class ShiroTest {
 
     /**
      * 测试方法执行时，需要将spring-mvc.xml里面

@@ -17,6 +17,8 @@
     <mybatis.version>3.2.8</mybatis.version>
     <mybatis-spring.version>1.2.3</mybatis-spring.version>
     <druid.version>1.0.18</druid.version>
+    <guava.version>17.0</guava.version>
+    <commons-io.version>2.4</commons-io.version>
   </properties>
 
   <dependencies>
@@ -106,6 +108,11 @@
       <artifactId>commons-lang3</artifactId>
       <version>${commons-lang3.version}</version>
     </dependency>
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>${commons-io.version}</version>
+    </dependency>
 
     <!-- SECURITY begin -->
     <dependency>
@@ -160,6 +167,20 @@
       <artifactId>log4j</artifactId>
       <version>1.2.17</version>
     </dependency>
+
+    <!-- google java lib -->
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>${guava.version}</version>
+    </dependency>
+    <!-- CACHE begin -->
+    <dependency>
+      <groupId>redis.clients</groupId>
+      <artifactId>jedis</artifactId>
+      <version>2.5.1</version>
+    </dependency>
+    <!-- CACHE end -->
 
 
   </dependencies>

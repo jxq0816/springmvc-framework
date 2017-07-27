@@ -1,6 +1,4 @@
-package com.week7i.share.util; /**
- * Copyright &copy; 2012-2016 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
+package com.week7i.share.util;
 
 import org.apache.shiro.cache.Cache;
 import org.apache.shiro.cache.CacheManager;
@@ -10,8 +8,8 @@ import java.util.Set;
 
 /**
  * Cache工具类
- * @author ThinkGem
- * @version 2013-5-29
+ * @author jiangxingqi
+ * @version 2017-5-9
  */
 public class CacheUtils {
 
