@@ -6,7 +6,6 @@ import com.google.common.collect.Sets;
 import com.week7i.share.config.Global;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Repository;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.exceptions.JedisException;
@@ -18,7 +17,6 @@ import java.util.Set;
 /**
  * Created by jiangxingqi on 2017/7/27.
  */
-@Repository
 public class JedisUtils {
 
     private static Logger logger = LoggerFactory.getLogger(JedisUtils.class);
