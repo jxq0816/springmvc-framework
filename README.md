@@ -1,4 +1,4 @@
-# springmvc_framework
+# springmvc-framework
 ## 所涉及的技术
 1. springmvc：Spring 框架提供了构建 Web 应用程序的全功能 MVC 模块。
 2. MyBatis：支持定制化 SQL、存储过程以及高级映射的优秀的持久层框架。
